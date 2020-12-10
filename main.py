@@ -13,9 +13,9 @@ def email_alert(subject, body, to):
   msg['subject'] = subject
   msg['to'] = to
 
-  user = 'devbenjoff@gmail.com'
+  user = 'your@mail.com'
   msg['from'] = user
-  password = 'hhxmdwvxobfpiryz'
+  password = 'yourpassword'
 
   server = smtplib.SMTP('smtp.gmail.com', 587)
   server.starttls()
@@ -46,7 +46,7 @@ while True:
     data = json.loads(response.text)
     price = data['data'][0]['quote']['USD']['price']
     msg = f'Cijena BitCoin-a trenutno je {price}.'
-    email_alert("Trenutna cijena BitCoin-a", msg, 'adnan.tatar2018@size.ba')
+    email_alert("Trenutna cijena BitCoin-a", msg, 'to@mail.com')
 
   except (ConnectionError, Timeout, TooManyRedirects) as e:
     print(e)
